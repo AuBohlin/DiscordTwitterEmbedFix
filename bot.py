@@ -25,7 +25,10 @@ async def on_message(message):
         return
 
     if message.content.startswith('https://x.com') or message.content.startswith('https://twitter.com'):
-        fix = message.content.replace('x.com', 'fxtwitter.com')
+        if message.content.startwith('https://x.com'):
+            fix = message.content.replace('x.com', 'vxtwitter.com')
+        else:
+            fix = message.content.replace('twitter.com', 'vxtwitter.com')
         
         name = message.author.nick
         if name is None:
@@ -33,6 +36,25 @@ async def on_message(message):
         msg = f'{fix} \nFrom: {name}'
         await message.delete()
         await message.channel.send(msg)
+
+    if message.content.startswith('https://tiktok.com'):
+        fix = message.content.replace('tiktok.com', 'vxtiktok.com')
         
+        name = message.author.nick
+        if name is None:
+            name = message.author.global_name
+        msg = f'{fix} \nFrom: {name}'
+        await message.delete()
+        await message.channel.send(msg)
+
+    if message.content.startswith('https://instagram.com'):
+        fix = message.content.replace('instagram.com', 'ddinstagram.com')
+        
+        name = message.author.nick
+        if name is None:
+            name = message.author.global_name
+        msg = f'{fix} \nFrom: {name}'
+        await message.delete()
+        await message.channel.send(msg)
 
 bot.run(TOKEN)
