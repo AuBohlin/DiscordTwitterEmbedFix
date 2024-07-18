@@ -25,7 +25,7 @@ async def on_message(message):
         return
 
     if message.content.startswith('https://x.com') or message.content.startswith('https://twitter.com'):
-        if message.content.startwith('https://x.com'):
+        if message.content.startswith('https://x.com'):
             fix = message.content.replace('x.com', 'vxtwitter.com')
         else:
             fix = message.content.replace('twitter.com', 'vxtwitter.com')
