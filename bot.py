@@ -47,7 +47,7 @@ async def on_message(message):
         await message.delete()
         await message.channel.send(msg)
 
-    if message.content.startswith('https://instagram.com'):
+    if message.content.startswith('https://instagram.com') or message.content.startswith('https://www.instagram.com'):
         fix = message.content.replace('instagram.com', 'ddinstagram.com')
         
         name = message.author.nick
