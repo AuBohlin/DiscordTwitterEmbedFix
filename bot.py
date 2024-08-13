@@ -37,7 +37,7 @@ async def on_message(message):
         await message.delete()
         await message.channel.send(msg)
 
-    if message.content.startswith('https://tiktok.com'):
+    if message.content.startswith('https://tiktok.com') or message.content.startswith('https://www.tiktok.com'):
         fix = message.content.replace('tiktok.com', 'vxtiktok.com')
         
         name = message.author.nick
