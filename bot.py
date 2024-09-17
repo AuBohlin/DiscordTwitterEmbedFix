@@ -58,4 +58,16 @@ async def on_message(message):
         await message.delete()
         await message.channel.send(msg)
 
+
+    if message.content.startswith('https://reddit.com') or message.content.startswith('https://www.reddit.com'):
+        fix = message.content.replace('reddit.com', 'rxddit.com')
+        
+        name = message.author.nick
+        if name is None:
+            name = message.author.global_name
+        msg = f'{fix} \nFrom: {name}'
+        await message.delete()
+        await message.channel.send(msg)
+
+
 bot.run(TOKEN)
