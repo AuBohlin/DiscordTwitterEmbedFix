@@ -48,7 +48,8 @@ async def on_message(message):
         await message.channel.send(msg)
 
     if message.content.startswith('https://instagram.com') or message.content.startswith('https://www.instagram.com'):
-        fix = message.content.replace('instagram.com', 'ddinstagram.com')
+        ext = message.content.split("instagram.com", 1)[1]
+        fix = 'https://d.ddinstagram.com' + ext
         
         name = message.author.nick
         if name is None:
