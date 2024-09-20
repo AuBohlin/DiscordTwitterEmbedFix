@@ -87,20 +87,4 @@ async def on_message(message):
         # Delete the webhook to clean up (optional)
         await webhook.delete()
 
-
-    # Check for the command !resend
-    if message.content.startswith("!resend"):
-        user = message.author
-        content = message.content[8:]  # Extract the message after "!resend "
-
-        # Create a webhook in the same channel
-        webhook = await message.channel.create_webhook(name=user.display_name)
-        
-        # Use the webhook to send the message with the user's name and avatar
-        await webhook.send(content, username=user.display_name, avatar_url=user.avatar.url)
-        
-        # Delete the webhook to clean up (optional)
-        await webhook.delete()
-
-
 bot.run(TOKEN)
