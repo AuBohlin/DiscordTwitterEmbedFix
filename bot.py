@@ -87,4 +87,17 @@ async def on_message(message):
         # Delete the webhook to clean up (optional)
         await webhook.delete()
 
+    if message.content.startswith('https://bsky.app'):
+        fix = message.content.replace('bsky.app', 'bskye.app')
+        user = message.author
+        # Create a webhook in the same channel
+        webhook = await message.channel.create_webhook(name=user.display_name)
+        
+        # Use the webhook to send the message with the user's name and avatar
+        await webhook.send(fix, username=user.display_name, avatar_url=user.avatar.url)
+        await message.delete()
+
+        # Delete the webhook to clean up (optional)
+        await webhook.delete()
+
 bot.run(TOKEN)
