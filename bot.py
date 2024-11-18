@@ -60,7 +60,7 @@ async def on_message(message):
 
     if message.content.startswith('https://instagram.com') or message.content.startswith('https://www.instagram.com'):
         ext = message.content.split("instagram.com", 1)[1]
-        fix = 'https://d.ddinstagram.com' + ext
+        fix = 'https://instagramez.com' + ext
         user = message.author
         # Create a webhook in the same channel
         webhook = await message.channel.create_webhook(name=user.display_name)
