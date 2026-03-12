@@ -44,18 +44,18 @@ async def on_message(message):
         await webhook.delete()
 
 
-    # if message.content.startswith('https://tiktok.com') or message.content.startswith('https://www.tiktok.com'):
-    #     fix = message.content.replace('tiktok.com', 'vxtiktok.com')
-    #     user = message.author
-    #     # Create a webhook in the same channel
-    #     webhook = await message.channel.create_webhook(name=user.display_name)
+    if message.content.startswith('https://tiktok.com') or message.content.startswith('https://www.tiktok.com'):
+        fix = message.content.replace('tiktok.com', 'tiktokez.com')
+        user = message.author
+        # Create a webhook in the same channel
+        webhook = await message.channel.create_webhook(name=user.display_name)
         
-    #     # Use the webhook to send the message with the user's name and avatar
-    #     await webhook.send(fix, username=user.display_name, avatar_url=user.avatar.url)
-    #     await message.delete()
+        # Use the webhook to send the message with the user's name and avatar
+        await webhook.send(fix, username=user.display_name, avatar_url=user.avatar.url)
+        await message.delete()
 
-    #     # Delete the webhook to clean up (optional)
-    #     await webhook.delete()
+        # Delete the webhook to clean up (optional)
+        await webhook.delete()
 
 
     if message.content.startswith('https://instagram.com') or message.content.startswith('https://www.instagram.com'):
